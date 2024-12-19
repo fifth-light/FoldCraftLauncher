@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Fold Craft Launcher</string>
+    <string name="app_name" translatable="false">(Debug) Fold Craft Launcher</string>
 
     <string name="splash_permission_msg">No storage permission, please grant Fold Craft Launcher the permission.</string>
     <string name="splash_permission_grant">Grant</string>
