@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.gson.GsonBuilder;
+import com.mio.TouchController;
 import com.tungsten.fcl.BuildConfig;
 import com.tungsten.fcl.FCLApplication;
 import com.tungsten.fcl.R;
@@ -82,6 +83,8 @@ import java.util.stream.Collectors;
 
 import fr.spse.gamepad_remapper.Remapper;
 import kotlin.Unit;
+import top.fifthlight.touchcontroller.proxy.client.LauncherProxyClient;
+import top.fifthlight.touchcontroller.proxy.client.android.TouchControllerLayout;
 
 public class GameMenu implements MenuCallback, View.OnClickListener {
 
@@ -641,6 +644,11 @@ public class GameMenu implements MenuCallback, View.OnClickListener {
     public View getLayout() {
         if (layout == null) {
             layout = LayoutInflater.from(activity).inflate(R.layout.view_game_menu, null);
+            TouchControllerLayout touchControllerLayout = layout.findViewById(R.id.touchcontroller_layout);
+            LauncherProxyClient client = TouchController.getProxyClient(activity);
+            if (client != null) {
+                touchControllerLayout.setClient(client);
+            }
             ((DrawerLayout) layout).setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
         return layout;
