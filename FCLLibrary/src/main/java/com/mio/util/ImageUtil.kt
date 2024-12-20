@@ -22,8 +22,7 @@ class ImageUtil {
         }
 
         @JvmStatic
-        fun load(path: String?): Optional<Bitmap> {
-            val path = path ?: return Optional.empty()
+        fun load(path: String): Optional<Bitmap> {
             if (!File(path).exists() or (getBitmapMemorySize(path) > 104857600)) {
                 return Optional.empty<Bitmap>()
             }
